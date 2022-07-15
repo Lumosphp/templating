@@ -1,0 +1,22 @@
+{
+  "name": "lumosphp/templating",
+  "description": "Lumos templating component",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+      "psr-4": {
+          "Lumos\\Templating\\": "src/"
+      }
+  },
+  "authors": [
+      {
+          "name": "Jack Polgar",
+          "email": "hello@jp.id.au"
+      }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+      "php": "^8.1",
+      "symfony/templating": "^6.1"
+  }
+}
