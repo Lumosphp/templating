@@ -26,7 +26,7 @@ class PhpEngine
     protected Slots $slots;
 
     /**
-     * 
+     *
      */
     public function __construct(
         protected array $directories = []
@@ -59,7 +59,7 @@ class PhpEngine
             return $this->helpers[$name];
         }
 
-        throw new BadMethodCallException(sprintf('The method or helper "%s" does not exist'));
+        throw new BadMethodCallException(sprintf('The method or helper "%s" does not exist', $name));
     }
 
     /**
@@ -98,12 +98,12 @@ class PhpEngine
         ob_start();
         require $viewPath;
         $content = ob_get_clean();
-        
+
         if ($this->parents[$viewFile]) {
             if ($this->slots->has('content')) {
                 $this->contentStack[] = $this->slots->get('content');
             }
-            
+
             $this->slots->set('content', $content);
             $content = $this->render($this->parents[$viewFile], $parameters);
 
@@ -120,6 +120,6 @@ class PhpEngine
      */
     public function extends(string $viewFile): void
     {
-        $this->parents[$this->current] = $viewFile; 
+        $this->parents[$this->current] = $viewFile;
     }
 }
